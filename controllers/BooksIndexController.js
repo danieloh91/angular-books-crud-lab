@@ -12,7 +12,6 @@ function BooksIndexController( $http ) {
     url: 'https://super-crud.herokuapp.com/books'
   }).then(function successCallback(succ) {
     vm.books = succ.data.books;
-    console.log(vm.books);
   }, function errorCallback(err) {
     console.log('error', err);
   });

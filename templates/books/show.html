@@ -21,16 +21,19 @@
           <ul class="list-group form inline">
             <li class="list-group-item">
               <h4 class="inline-header">{{bookCtrl.book.title}}</h4>
+							<input ng-show="editing" ng-model="bookCtrl.book.title" type="text" class="form-control input-md">
               <h4 class="inline-header">{{bookCtrl.book.author}}</h4>
+							<input ng-show="editing" ng-model="bookCtrl.book.author" type="text" class="form-control input-md">
               <h4 class="inline-header">{{bookCtrl.book.releaseDate}}</h4>
+							<input ng-show="editing" ng-model="bookCtrl.book.releaseDate" type="text" class="form-control input-md">
             </li>
           </ul>
         </div>
 
 				<button class='btn btn-info' ng-hide="editing" ng-click="editing = true">Edit</button>
-				<button class="btn btn-primary" ng-hide="editing">Delete</button>
+				<button class="btn btn-primary">Delete</button>
         <button type='reset' class='btn btn-info' ng-show="editing" ng-click="editing=false">Cancel</button>
-        <button type='submit' class='btn btn-success' ng-show="editing">Save Changes</button>
+        <button type='submit' class='btn btn-success' ng-show="editing" ng-click="bookCtrl.editBook(bookCtrl.book); editing = false">Save Changes</button>
 
       </div>
 

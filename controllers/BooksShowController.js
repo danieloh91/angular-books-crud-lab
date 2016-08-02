@@ -18,16 +18,16 @@ function BooksShowController($http, $routeParams, $location) {
     console.log('error', err);
   });
 
-  // vm.editBook = function (book) {
-  //   $http({
-  //     method: 'PUT',
-  //     url: 'https://super-crud.herokuapp.com/books/' + _id,
-  //     data: book
-  //   }).then(function successCallback(json) {
-  //     vm.book.push(json.data);
-  //     console.log(json.data);
-  //   }, function errorCallback(err) {
-  //     console.log('There was an error deleting the data', err);
-  //   });
-  // };
+  vm.editBook = function (book) {
+    console.log(book);
+    $http({
+      method: 'PUT',
+      url: 'https://super-crud.herokuapp.com/books/' + _id,
+      data: book
+    }).then(function successCallback(json) {
+      console.log(json.data);
+    }, function errorCallback(err) {
+      console.log('There was an error deleting the data', err);
+    });
+  };
 }
