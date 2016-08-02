@@ -31,7 +31,7 @@
         </div>
 
 				<button class='btn btn-info' ng-hide="editing" ng-click="editing = true">Edit</button>
-				<button class="btn btn-primary">Delete</button>
+				<button class="btn btn-primary" ng-click="bookCtrl.deleteBook(bookCtrl.book)">Delete</button>
         <button type='reset' class='btn btn-info' ng-show="editing" ng-click="editing=false">Cancel</button>
         <button type='submit' class='btn btn-success' ng-show="editing" ng-click="bookCtrl.editBook(bookCtrl.book); editing = false">Save Changes</button>
 
