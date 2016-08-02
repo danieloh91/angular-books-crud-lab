@@ -1,5 +1,7 @@
 angular.module('libraryApp', ['ngRoute'])
        .config(config);
+      //  .controller('BooksIndexController', BooksIndexController)
+      //  .controller('BooksShowController', BooksShowController);
 
 ////////////
 // ROUTES //
@@ -14,6 +16,11 @@ function config (  $routeProvider,   $locationProvider  )  {
       controllerAs: 'allBooksCtrl'/* What will you call the controller in the html? */
     })
     /* Include the additional route here! */
+    .when('/books/:_id', {
+      templateUrl: 'templates/books/show.html',
+      controller: 'BooksShowController',
+      controllerAs: 'bookCtrl'
+    })
     .otherwise({
       redirectTo: '/'
     });
