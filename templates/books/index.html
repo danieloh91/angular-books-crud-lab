@@ -1,13 +1,24 @@
 <div class="container col-md-8 col-md-offset-2">
   <h2 class="col-md-8 col-md-offset-2">Library Books</h2>
 </div>
-<!-- <div ng-repeat="add the expression here to repeat through the books">
-  Here, make the HTML for how you want each book to display.
-  Make sure you display an image, the title, and the author.
-  The title should be a link to the specific book view.
-</div> -->
+
+<div class="col-md-8 col-md-offset-2">
+  <input type="text" class="form-control" ng-model="book.title" placeholder="Filter by book title">
+  <button class='btn btn-info' ng-hide="adding" ng-click="adding = true">Add Book</button>
+</div>
+
+<form name="bookForm" class="col-md-8 col-md-offset-2" ng-show="adding" ng-submit="allBooksCtrl.createBook()">
+  <h1>Enter Book Information</h1>
+  <input type="text" class="form-control" placeholder="Book Title" ng-model="allBooksCtrl.newBook.title">
+  <input type="text" class="form-control" placeholder="Author" ng-model="allBooksCtrl.newBook.author">
+  <input type="text" class="form-control" placeholder="Release Date" ng-model="allBooksCtrl.newBook.releaseDate">
+  <input type="text" class="form-control" placeholder="image url" ng-model="allBooksCtrl.newBook.image">
+  <button type="reset" name="button" class="btn btn-info" ng-click="adding = false">Cancel</button>
+  <button type="submit" name="button" class="btn btn-primary" ng-click="adding = false">Enter</button>
+</form>
+
 <div class="container col-md-8 col-md-offset-2">
-  <div ng-repeat="book in allBooksCtrl.books" class="row">
+  <div ng-repeat="book in allBooksCtrl.books | filter: book.title" class="row">
     <div class="col-md-8 col-md-offset-2">
       <div class="panel panel-default">
         <div class="panel-body">
@@ -21,7 +32,9 @@
             <div class="col-md-8 col-xs-12">
               <ul class="list-group form inline">
                 <li class="list-group-item">
-                  <a class="inline-header" ng-href="/books/{{book._id}}">{{book.title}}</a>
+                  <h4>
+                    <a class="inline-header" ng-href="/books/{{book._id}}">{{book.title}}</a>
+                  </h4>
                   <h4 class="inline-header">{{book.author}}</h4>
                   <h4 class="inline-header">{{book.releaseDate}}</h4>
                 </li>
